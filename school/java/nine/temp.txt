@@ -1,0 +1,3 @@
+read some information
+ is a student
+ like swimming

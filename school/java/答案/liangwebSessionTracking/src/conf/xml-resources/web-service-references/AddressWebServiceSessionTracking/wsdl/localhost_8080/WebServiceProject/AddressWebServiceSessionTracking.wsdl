@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://chapter41/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://chapter41/" name="AddressWebServiceSessionTracking">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://chapter41/" schemaLocation="http://DJYGXW61:8080/WebServiceProject/AddressWebServiceSessionTracking/__container$publishing$subctx/WEB-INF/wsdl/AddressWebServiceSessionTracking_schema1.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    </xsd:schema>
+  </types>
+  <message name="getAddress">
+    <part name="parameters" element="tns:getAddress"/>
+  </message>
+  <message name="getAddressResponse">
+    <part name="parameters" element="tns:getAddressResponse"/>
+  </message>
+  <message name="storeAddress">
+    <part name="parameters" element="tns:storeAddress"/>
+  </message>
+  <message name="storeAddressResponse">
+    <part name="parameters" element="tns:storeAddressResponse"/>
+  </message>
+  <message name="storeAddressInSession">
+    <part name="parameters" element="tns:storeAddressInSession"/>
+  </message>
+  <message name="storeAddressInSessionResponse">
+    <part name="parameters" element="tns:storeAddressInSessionResponse"/>
+  </message>
+  <portType name="AddressServiceSessionTracking">
+    <operation name="getAddress">
+      <input message="tns:getAddress"/>
+      <output message="tns:getAddressResponse"/>
+    </operation>
+    <operation name="storeAddress">
+      <input message="tns:storeAddress"/>
+      <output message="tns:storeAddressResponse"/>
+    </operation>
+    <operation name="storeAddressInSession">
+      <input message="tns:storeAddressInSession"/>
+      <output message="tns:storeAddressInSessionResponse"/>
+    </operation>
+  </portType>
+  <binding name="AddressServiceSessionTrackingPortBinding" type="tns:AddressServiceSessionTracking">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="getAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="storeAddress">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="storeAddressInSession">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AddressWebServiceSessionTracking">
+    <port name="AddressServiceSessionTrackingPort" binding="tns:AddressServiceSessionTrackingPortBinding">
+      <soap:address location="http://DJYGXW61:8080/WebServiceProject/AddressWebServiceSessionTracking" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    </port>
+  </service>
+</definitions>
