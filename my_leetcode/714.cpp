@@ -1,5 +1,6 @@
 //这次一定要吸取教训   不要随意去从122改了   直接自己先想通    
 //感觉122也有问题就做完这个再去看122   不要弄得很乱
+//知道应该是动态规划了   但是想不出来具体怎么规划    找别人的借鉴一下
 class Solution {
 public:
     int maxProfit(vector<int>& prices, int fee) {
