@@ -5,21 +5,13 @@
 #include<vector>
 #include<set>
 #include<map>
-#include<unordered_map>
-#include<unordered_set>
 #include<algorithm>
 using namespace std;
 
 int main(){
-    //input
+    string a = "012";
+    int b = atoi(a.c_str());
 
-
-    //deal with
-    
-
-    //output
-
-
-
+    cout<<b<<endl;
     return 0;
 }
