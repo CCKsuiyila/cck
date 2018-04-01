@@ -1,6 +1,74 @@
 
 //https://www.patest.cn/contests/gplt/L2-011
 
+//20180331  review
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> inorder(50),preorder(50);
+
+struct tree_node{
+    tree_node* father = NULL;
+    tree_node* left_child = NULL;
+    tree_node* right_child = NULL;
+    int key = -1, layer = -1;
+};
+
+tree_node* tree_store = new tree_node[50];
+int count_tree_store = 0;
+
+tree_node* build_tree(int prefrom,int infrom,int length,int layer){
+    if(length<=0){
+        return nullptr;
+    }
+    int temp = infrom;
+    while(inorder[temp]!=preorder[prefrom]) ++temp;
+    tree_node* temp_root = &(tree_store[count_tree_store++]);
+    temp_root->key = preorder[prefrom];
+    temp_root->layer = layer;
+    temp_root->left_child = build_tree(prefrom+1,infrom,temp-infrom,++layer);
+    temp_root->right_child = build_tree(temp-infrom+prefrom+1,temp+1,length-(temp-infrom)-1,++layer);
+    return temp_root;
+}
+
+void swap1(tree_node* change){
+    if(change->left_child!=nullptr){
+        swap1(change->left_child);
+    }
+    if(change->right_child!=nullptr){
+        swap1(change->right_child);
+    }
+    tree_node* temp = change->left_child;
+    change->left_child = change->right_child;
+    change->right_child = temp;
+}
+int main(){
+    int n;  cin>>n;
+    for(int i=0;i<n;++i) cin>>inorder[i];
+    for(int i=0;i<n;++i) cin>>preorder[i];
+
+    tree_node* tree_root = build_tree(0,0,n,0);
+    swap1(tree_root);
+    vector<tree_node*> result;
+    result.push_back(tree_root);
+    for(int i=0;i<result.size();++i){
+        if(result[i]->left_child!=nullptr){
+            result.push_back(result[i]->left_child);
+        }
+        if(result[i]->right_child!=nullptr){
+            result.push_back(result[i]->right_child);
+        }
+    }
+    for(int i=0;i<result.size();++i){
+        cout<<result[i]->key;
+        if(i!=result.size()-1){
+            cout<<' ';
+        }
+    }
+}
+
+
+/*
 #include<iostream>
 #include<cstdio>
 #include<vector>
@@ -99,6 +167,8 @@ int main(){
     }
 	return 0;
 }
+*/
+
 
 /*
 #include<iostream>
